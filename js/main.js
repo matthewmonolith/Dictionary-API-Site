@@ -8,11 +8,15 @@ function getWord(){
   .then(res => res.json()) // parse response as JSON
   .then(data => {
     console.log(data)
-    document.querySelector('h2').innerText = data[0].word
+    let li = document.createElement('li')
     document.querySelector('ul').appendChild(li)
+    while (document.querySelector('ul').firstChild) {
+      document.querySelector('ul').removeChild(document.querySelector('ul').firstChild)
+      }
+    document.querySelector('h2').innerText = data[0].word
     data[0].meanings[0].definitions.forEach(element => {
       console.log(element.definition)
-      const li = document.createElement('li')
+      let li = document.createElement('li')
       li.textContent = element.definition
       document.querySelector('ul').appendChild(li)
       li.style.fontSize = '2.5rem'
