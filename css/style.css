@@ -29,7 +29,7 @@ body {
     background-image: url(imgs/books.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-
+    height: 1300px;
 }
 
 main {
