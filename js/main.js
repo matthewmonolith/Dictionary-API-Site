@@ -9,7 +9,16 @@ function getWord(){
   .then(data => {
     console.log(data)
     document.querySelector('h2').innerText = data[0].word
-    document.querySelector('p').innerText = data[0].meanings[0].definitions[0].definition
+    document.querySelector('ul').appendChild(li)
+    data[0].meanings[0].definitions.forEach(element => {
+      console.log(element.definition)
+      const li = document.createElement('li')
+      li.textContent = element.definition
+      document.querySelector('ul').appendChild(li)
+      li.style.fontSize = '2.5rem'
+      li.style.width = '60%'
+      li.style.margin = '10px 5px'
+    })
   })
   .catch(err => {
       console.log(`error ${err}`)
